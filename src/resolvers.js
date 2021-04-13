@@ -3,11 +3,11 @@ import { notesGraphql } from "./models/NoteSchema.js";
 export const resolvers = {
   Query: {
     hello: () => "hi",
-    notes: () => Notes.find()
+    notes: () => notesGraphql.find()
   },
   Mutation: {
     createNote: async (_, { name }) => {
-      const kitty = new Note({ name });
+      const kitty = new notesGraphql({ name });
       await kitty.save();
       return kitty;
     }
