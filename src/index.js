@@ -9,12 +9,12 @@ const startServer = async () => {
 
   const server = new ApolloServer({
     typeDefs,
-    resolvers
-  });
+    resolvers, 
+    });
 
   server.applyMiddleware({ app });
 
-  await mongoose.connect("mongodb+srv://Dom:RjIbzYxjHaL8ypxa@cluster0.fpxgk.mongodb.net/graphql", {
+  await mongoose.connect('mongodb+srv://Dom:RjIbzYxjHaL8ypxa@cluster0.fpxgk.mongodb.net/graphql', {
     useNewUrlParser: true
   });
 
@@ -25,3 +25,36 @@ const startServer = async () => {
 
 startServer();
 
+
+
+//import { ApolloClient, InMemoryCache } from '@apollo/client';
+
+/** 
+const client = new ApolloClient({
+  uri: 'http://localhost:4000/graphql',
+  cache: new InMemoryCache()
+  cacheControl: {
+      defaultMaxAge: 86000, // 86400 seconds = 24 hours
+      },
+});
+
+client.query({
+    query: gql`
+      query {notes{id,name}}
+    `
+  })
+  .then(result => console.log(result));
+*/
+
+
+/** 
+{
+    "env": {
+        "MONGO_USER": "Dom",
+        "MONGO_PASSWORD": "RjIbzYxjHaL8ypxa",
+        "MONGO_DB": "graphql"
+    }
+}
+
+
+*/
